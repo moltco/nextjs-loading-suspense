@@ -11,8 +11,8 @@ export default async function LoadDataPage({
     size?: string;
   };
 }) {
-  const query = searchParams?.query || "";
-  const currentPage = Number(searchParams?.page) || 1;
+  const query = (await searchParams?.query) || "";
+  const currentPage = Number(await searchParams?.page) || 1;
 
   const data = await getData(query, currentPage);
 
